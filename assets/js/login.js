@@ -45,6 +45,7 @@ $(function () {
                 return layer.msg(res.message)
             }
             layer.msg('注册成功,请登录')
+            // console.log(res);
             // 模拟点击 去登陆
             $('#link_login').click()
         })
@@ -64,8 +65,9 @@ $(function () {
                     return layer.msg(res.message)
                 }
                 layer.msg('登陆成功')
+                // console.log(res);
                 // 将token字符串存到本地
-                localStorage.setItem('token', token)
+                localStorage.setItem('token', res.token)
                 // 跳转后台主页
                 location.href = './index.html'
             }
