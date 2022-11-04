@@ -14,7 +14,8 @@ $.ajaxPrefilter(function (options) {
     // 控制用户访问权限，不管success还是error
     // 都会调用complete
     options.complete = function (res) {
-        if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败') {
+        // '身份认证失败！'中带有惊叹号，而且必须是中文的字符串！！！！！！！！
+        if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
             // 清空token字符串
             localStorage.removeItem('token')
             // 强制跳转登录界面
